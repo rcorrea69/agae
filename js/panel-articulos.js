@@ -58,15 +58,47 @@ $(document).ready(function () {
         var f=$.trim($("#f").val());
         var celular=$.trim($("#celular").val());
         var referente=$.trim($("#referente").val());
+        
+        if (dni == null || dni.length == 0 || /^\s+$/.test(dni)) {
+            //alert('El dni esta vacio desde aca');
+            $("#dni").focus();
+            Swal.fire({
+              icon: "warning",
+              title: "Atención...",
+              text: "El Nro de DNI esta vacio",
+              //footer: '<a href>Why do I have this issue?</a>'
+            });
+            return false;
+          };
+          if (apellido == null || apellido.length == 0 || /^\s+$/.test(apellido)) {
+            //alert('El dni esta vacio desde aca');
+            $("#apellido").focus();
+            Swal.fire({
+              icon: "warning",
+              title: "Atención...",
+              text: "No ingreso el Apellido",
+              //footer: '<a href>Why do I have this issue?</a>'
+            });
+            return false;
+          }  
 
-        console.log(articulo);
-        console.log(opcion);
-        console.log(id);
+          if (nombre == null || nombre.length == 0 || /^\s+$/.test(nombre)) {
+            //alert('El dni esta vacio desde aca');
+            $("#nombre").focus();
+            Swal.fire({
+              icon: "warning",
+              title: "Atención...",
+              text: "No Ingreso el Nombre",
+              //footer: '<a href>Why do I have this issue?</a>'
+            });
+            return false;
+          }
+
         $.ajax({
         url: "./ajax/AbmArticulos.php",
         type: "POST",
         datatype: "json",
-        data: { articulo: articulo, opcion: opcion },
+        data: { dni: dni, apellido: apellido, nombre: nombre, t:t, f:f, celular:celular,referente:referente },
         success: function (data) {
             tablaArticulos.ajax.reload(null, false);
             Swal.fire({

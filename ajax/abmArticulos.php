@@ -4,13 +4,20 @@ include_once '../db/conexion.php';
 
 
 $opcion = (isset($_POST['opcion'])) ? $_POST['opcion'] : '';
-$id = (isset($_POST['id'])) ? $_POST['id'] : '';
+$dni = (isset($_POST['dni'])) ? $_POST['dni'] : '';
+$apellido = (isset($_POST['apellido'])) ? $_POST['apellido'] : '';
+$nombre = (isset($_POST['nombre'])) ? $_POST['nombre'] : '';
+$t = (isset($_POST['t'])) ? $_POST['t'] : '';
+$f = (isset($_POST['f'])) ? $_POST['f'] : '';
+$celular = (isset($_POST['celular'])) ? $_POST['celular'] : '';
+$referente = (isset($_POST['referente'])) ? $_POST['referente'] : '';
 
 
 switch($opcion){
     case 1:
+        $consulta ="INSERT INTO `padron`(`apellidos`, `nombres`, `dni`, `T`, `F`, `celular`, `referente`) 
+        VALUES ('".$apellido."','".$nombre."','".$dni."',$t,$f,'".$celular."','".$referente"')";
         
-        $consulta="INSERT INTO oficinas (ofi_nombre) VALUES('".$oficina."')";
         $resultado= mysqli_query($link,$consulta);
         
         $consulta="SELECT * FROM oficinas";
@@ -46,13 +53,7 @@ switch($opcion){
     case 4:
 
         $consulta="SELECT `id_abogado`, `apellidos`, `nombres`, `dni`, `T`, `F`, `celular`, `referente` FROM `padron`";
-        // $consulta="SELECT art.id_articulo,art.art_nombre,art.art_precio,ru.ru_nombre,sub.sub_nombre
-        // FROM articulos art
-        // LEFT JOIN rubros ru ON ru.id_rubro=art.art_rubro
-        // LEFT JOIN subrubros sub ON sub.id_subrubro=art.art_subrubro
-        // WHERE art.art_activo=1 
-        // ORDER BY art.id_articulo";    
-        
+         
         $res_art = mysqli_query($link, $consulta);
         $data=array();
             while ($row=mysqli_fetch_array($res_art)) {
