@@ -20,7 +20,8 @@ $(document).ready(function () {
         { data: "referente" },
         {
             defaultContent:
-            "<div class='text-center'><div class='btn-group'><button class='btn btn-primary btn-sm btnEditar'><i class='far fa-edit '></i></button><button class='btn btn-danger btn-sm btnBorrar'><i class='far fa-trash-alt '></i></button></div></div>",
+            "<div class='text-center'><div class='btn-group'><button class='btn btn-primary btn-sm btnEditar'><i class='far fa-edit '></i></div>",
+            // </button><button class='btn btn-danger btn-sm btnBorrar'><i class='far fa-trash-alt '></i></button></div>
         },
         ],
         language: {
@@ -88,7 +89,12 @@ $(document).ready(function () {
             });
             return false;
             }
-
+            var mensaje='';
+            if (opcion==1){
+              mensaje="Se dió de alta un Nuevo Registro";
+            }else {
+              mensaje="Se dió de alta un Nuevo Registro";
+            };
             $.ajax({
             url: "./ajax/abmArticulos.php",
             type: "POST",
@@ -103,7 +109,6 @@ $(document).ready(function () {
                 referente: referente,
                 opcion: opcion,
             },
-
             success: function (data) {
                 tablaArticulos.ajax.reload(null, false);
                 Swal.fire({
@@ -124,8 +129,11 @@ $(document).ready(function () {
         $("#formArticulos").trigger("reset");
         $(".modal-header").css("background-color", "#17a2b8");
         $(".modal-header").css("color", "white");
-        $(".modal-title").text("Alta de Registro de Abogados");
+      
+        $("#exampleModalLabel").text("Alta de Registro de Abogados");
         $("#modalCRUD").modal("show");
+        setTimeout('$("#dni").focus()',500);	
+        
     });
 
   //Editar
@@ -149,11 +157,11 @@ $(document).ready(function () {
         $("#f").val(f);
         $("#celular").val(celular);
         $("#referente").val(referente);
-
         $(".modal-header").css("background-color", "#007bff");
         $(".modal-header").css("color", "white");
-        $(".modal-title").text("Editar Registro de Abogado");
+        $("#exampleModalLabel").text("Editar Registro de Abogado");
         $("#modalCRUD").modal("show");
+        setTimeout('$("#apellido").focus()',500);	
     });
 
   //Borrar
@@ -184,13 +192,5 @@ $(document).ready(function () {
       }
     });
   });
-  function cboRubros() {
-    $.ajax({
-      type: "POST",
-      url: "./ajax/cboRubros.php",
-      success: function (response) {
-        $("#rubro").html(response);
-      },
-    });
-  }
+
 });

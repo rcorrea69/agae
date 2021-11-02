@@ -59,43 +59,43 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fas fa-id-card mr-1"></i> Dni</div>
                             </div>
-                            <input type="text" class="form-control"  id="dni" name="dni">
+                            <input type="text" class="form-control"  id="dni" name="dni" autocomplete="off">
                         </div>
                         <div class="input-group mt-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fas fa-id-card mr-1"></i> Apellidos</div>
                             </div>
-                            <input type="text" class="form-control" id="apellido" name="apellido" >
+                            <input type="text" class="form-control" id="apellido" name="apellido" autocomplete="off" >
                         </div>
                         <div class="input-group mt-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fas fa-id-card mr-1"></i> Nombres</div>
                             </div>
-                            <input type="text" class="form-control" id="nombre" name="nombre">
+                            <input type="text" class="form-control" id="nombre" name="nombre" autocomplete="off">
                         </div>
                         <div class="input-group mt-3 col-6">
                             <div class="input-group-prepend">
                                 <div class="input-group-text "> T</div>
                             </div>
-                            <input type="text" class="form-control"  id="t" name="t">
+                            <input type="text" class="form-control"  id="t" name="t" autocomplete="off">
                         </div>
                         <div class="input-group mt-3 col-6">
                             <div class="input-group-prepend">
                                 <div class="input-group-text "> F</div>
                             </div>
-                            <input type="text" class="form-control " id="f" name="f">
+                            <input type="text" class="form-control " id="f" name="f" autocomplete="off">
                         </div>
                         <div class="input-group mt-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fas fa-mobile-alt mr-1"></i> Cel.</div>
                             </div>
-                            <input type="text" class="form-control"  id="celular" name="celular">
+                            <input type="text" class="form-control"  id="celular" name="celular" autocomplete="off">
                         </div>
                         <div class="input-group mt-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text "><i class="fas fa-male mr-1"></i>Referente</div>
                             </div>
-                            <input type="text" class="form-control"  id="referente" name="referente">
+                            <input type="text" class="form-control"  id="referente" name="referente" autocomplete="off">
                         </div>
                         
                     </div>
