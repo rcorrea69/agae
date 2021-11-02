@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    var id, opcion;
-    opcion = 4;
+  var id, opcion;
+  opcion = 4;
 
     tablaArticulos = $("#tablaArticulos").DataTable({
         ajax: {
@@ -10,7 +10,6 @@ $(document).ready(function () {
         dataSrc: "",
         },
         columns: [
-
         { data: "id_abogado" },
         { data: "apellidos" },
         { data: "nombres" },
@@ -41,73 +40,80 @@ $(document).ready(function () {
         },
     });
 
-    var fila; //captura la fila, para editar o eliminar
-    //submit para el Alta y Actualización
+  var fila; //captura la fila, para editar o eliminar
+  //submit para el Alta y Actualización
     $("#formArticulos").submit(function (e) {
         e.preventDefault(); //evita el comportambiento normal del submit, es decir, recarga total de la página
-        // var articulo = $.trim($("#articulo").val());
-        // var nombre = $.trim($("#nombre").val());
-        // var rubro= $.trim($("rubro").val());
-        // var subrubro = $.trim($("#subrubro").val());
-        // var precio = $.trim($("#precio").val());
 
-        var dni=$.trim($("#dni").val());
-        var apellido=$.trim($("#apellidos").val());
-        var nombre=$.trim($("#nombres").val());
-        var t=$.trim($("#t").val());
-        var f=$.trim($("#f").val());
-        var celular=$.trim($("#celular").val());
-        var referente=$.trim($("#referente").val());
-        
-        if (dni == null || dni.length == 0 || /^\s+$/.test(dni)) {
+        var dni = $.trim($("#dni").val());
+        var apellido = $("#apellido").val();
+        var nombre = $("#nombre").val();
+        var t = $.trim($("#t").val());
+        var f = $.trim($("#f").val());
+        var celular = $.trim($("#celular").val());
+        var referente = $.trim($("#referente").val());
+
+            if (dni == null || dni.length == 0 || /^\s+$/.test(dni)) {
             //alert('El dni esta vacio desde aca');
             $("#dni").focus();
             Swal.fire({
-              icon: "warning",
-              title: "Atención...",
-              text: "El Nro de DNI esta vacio",
-              //footer: '<a href>Why do I have this issue?</a>'
+                icon: "warning",
+                title: "Atención...",
+                text: "El Nro de DNI esta vacio",
+                //footer: '<a href>Why do I have this issue?</a>'
             });
             return false;
-          };
-          if (apellido == null || apellido.length == 0 || /^\s+$/.test(apellido)) {
+            }
+
+            if (apellido == null || apellido.length == 0 || /^\s+$/.test(apellido)) {
             //alert('El dni esta vacio desde aca');
             $("#apellido").focus();
             Swal.fire({
-              icon: "warning",
-              title: "Atención...",
-              text: "No ingreso el Apellido",
-              //footer: '<a href>Why do I have this issue?</a>'
+                icon: "warning",
+                title: "Atención...",
+                text: "No ingreso el Apellido",
+                //footer: '<a href>Why do I have this issue?</a>'
             });
             return false;
-          }  
+            }
 
-          if (nombre == null || nombre.length == 0 || /^\s+$/.test(nombre)) {
+            if (nombre == null || nombre.length == 0 || /^\s+$/.test(nombre)) {
             //alert('El dni esta vacio desde aca');
             $("#nombre").focus();
             Swal.fire({
-              icon: "warning",
-              title: "Atención...",
-              text: "No Ingreso el Nombre",
-              //footer: '<a href>Why do I have this issue?</a>'
+                icon: "warning",
+                title: "Atención...",
+                text: "No Ingreso el Nombre",
+                //footer: '<a href>Why do I have this issue?</a>'
             });
             return false;
-          }
+            }
 
-        $.ajax({
-        url: "./ajax/AbmArticulos.php",
-        type: "POST",
-        datatype: "json",
-        data: { dni: dni, apellido: apellido, nombre: nombre, t:t, f:f, celular:celular,referente:referente },
-        success: function (data) {
-            tablaArticulos.ajax.reload(null, false);
-            Swal.fire({
-            icon: "success",
-            title: "Correcto...",
-            text: "Se dió de alta un Nuevo Registro",
+            $.ajax({
+            url: "./ajax/abmArticulos.php",
+            type: "POST",
+            datatype: "json",
+            data: {
+                dni: dni,
+                apellido: apellido,
+                nombre: nombre,
+                t: t,
+                f: f,
+                celular: celular,
+                referente: referente,
+                opcion: opcion,
+            },
+
+            success: function (data) {
+                tablaArticulos.ajax.reload(null, false);
+                Swal.fire({
+                icon: "success",
+                title: "Correcto...",
+                text: "Se dió de alta un Nuevo Registro",
+                });
+                console.log(data);
+            },
             });
-        },
-        });
         $("#modalCRUD").modal("hide");
     });
 
@@ -136,8 +142,8 @@ $(document).ready(function () {
         referente = fila.find("td:eq(7)").text();
 
         $("#dni").val(dni);
-        $("#nombres").val(nombre);
-        $("#apellidos").val(apellido);
+        $("#nombre").val(nombre);
+        $("#apellido").val(apellido);
         $("#dni").val(dni);
         $("#t").val(t);
         $("#f").val(f);
@@ -148,70 +154,43 @@ $(document).ready(function () {
         $(".modal-header").css("color", "white");
         $(".modal-title").text("Editar Registro de Abogado");
         $("#modalCRUD").modal("show");
-
     });
 
   //Borrar
-    $(document).on("click", ".btnBorrar", function () {
-        fila = $(this);
-        id = parseInt($(this).closest("tr").find("td:eq(0)").text());
-        opcion = 3; //eliminar
+  $(document).on("click", ".btnBorrar", function () {
+    fila = $(this);
+    id = parseInt($(this).closest("tr").find("td:eq(0)").text());
+    opcion = 3; //eliminar
 
-        Swal.fire({
-        icon: "question",
-        title: "Está seguro que desea Eliminar el registro " + id + " ?",
-        showCancelButton: true,
-        confirmButtonText: `Eliminar`,
-        }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
+    Swal.fire({
+      icon: "question",
+      title: "Está seguro que desea Eliminar el registro " + id + " ?",
+      showCancelButton: true,
+      confirmButtonText: `Eliminar`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
 
-        if (result.isConfirmed) {
-            $.ajax({
-            url: "./ajax/AbmOficinas.php",
-            type: "POST",
-            datatype: "json",
-            data: { opcion: opcion, id: id },
-            success: function () {
-                tablaOficinas.row(fila.parents("tr")).remove().draw();
-            },
-            });
-            Swal.fire("Registro Borrado!", "", "success");
-        }
-        });
-    });
-    function cboRubros(){
+      if (result.isConfirmed) {
         $.ajax({
-            type: "POST",
-            url: "./ajax/cboRubros.php",
-            success: function (response) {
-                $('#rubro').html(response);
-                
-            }
+          url: "./ajax/AbmOficinas.php",
+          type: "POST",
+          datatype: "json",
+          data: { opcion: opcion, id: id },
+          success: function () {
+            tablaOficinas.row(fila.parents("tr")).remove().draw();
+          },
         });
-    };
-
-    cboRubros();
-
-    function cboSubrubros(rubro){
-        var ru = rubro;
-        console.log(ru);
-        $.ajax({
-            type: "POST",
-            url: "./ajax/cboSubrubros.php",
-            data: {ru:ru},
-            success: function (response) {
-                $('#subrubro').html(response);
-            }
-        });
-
-    };
-
-    $('#rubro').change(function (e) { 
-        e.preventDefault();
-        var rubro = $('#rubro').val();
-        console.log(rubro);
-        cboSubrubros(rubro);
-        
+        Swal.fire("Registro Borrado!", "", "success");
+      }
     });
-
+  });
+  function cboRubros() {
+    $.ajax({
+      type: "POST",
+      url: "./ajax/cboRubros.php",
+      success: function (response) {
+        $("#rubro").html(response);
+      },
+    });
+  }
 });

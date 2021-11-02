@@ -12,7 +12,7 @@ session_start();
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sistema de Economato - Login</title>
+    <title>Agae - Login</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,7 +25,7 @@ session_start();
 
 </head>
 
-<body class="bg-gradient-primary" style="background-image: url('img/campodonico.jpeg'); width: 100%; height: 100%; background-repeat: no-repeat;background-size: cover; ">
+<body class="bg-gradient-primary" >
 <?php
 require_once('db/conexion.php');
 # Verifico si envio un usuario y pin, y si es válido.
@@ -95,7 +95,7 @@ if (isset($_REQUEST["ingresar"])) {
                             <div class="col-lg-12">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Sistema de Gestion Web</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Sistema AGAE</h1>
                                     </div>
                                     
                                     <form class="user" role="form" name="form1" method="POST" action="login.php" autocomplete="off">
