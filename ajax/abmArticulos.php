@@ -7,8 +7,8 @@ $opcion = (isset($_POST['opcion'])) ? $_POST['opcion'] : '';
 $dni = (isset($_POST['dni'])) ? $_POST['dni'] : '';
 $apellido = (isset($_POST['apellido'])) ? $_POST['apellido'] : '';
 $nombre = (isset($_POST['nombre'])) ? $_POST['nombre'] : '';
-$t = (isset($_POST['t'])) ? $_POST['t'] : '';
-$f = (isset($_POST['f'])) ? $_POST['f'] : '';
+$t = (isset($_POST['t'])) ? $_POST['t'] : 0;
+$f = (isset($_POST['f'])) ? $_POST['f'] : 0;
 $celular = (isset($_POST['celular'])) ? $_POST['celular'] : '';
 $referente = (isset($_POST['referente'])) ? $_POST['referente'] : '';
 
@@ -17,20 +17,10 @@ switch($opcion){
     case 1:
         $consulta ="INSERT INTO `padron`(`apellidos`, `nombres`, `dni`, `T`, `F`, `celular`, `referente`) 
         VALUES ('".$apellido."','".$nombre."','".$dni."',$t,$f,'".$celular."','".$referente."')";
-        
+        print_r ($consulta);
         $resultado= mysqli_query($link,$consulta);
       
-  
-        // $consulta="SELECT * FROM oficinas";
-        // $resultado= mysqli_query($link,$consulta);
-        // $data=array();
-        // while ($row=mysqli_fetch_array($resultado)) {
-        //             $data[]=array(
-        //                 'id_oficina'=> $row['id_oficina'],
-        //                 'ofi_nombre'=> $row['ofi_nombre']
-        //             );    
-        // };
-
+     
         break;    
     case 2:        
     

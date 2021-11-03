@@ -22,8 +22,8 @@
                             <thead class="text-center thead-dark ">
                                 <tr>
                                     <th>Código</th>
-                                    <th>Nombre</th>
                                     <th>Apellido</th>
+                                    <th>Nombre</th>
                                     <th>D.N.I</th>
                                     <th>T</th>
                                     <th>F</th>
@@ -47,8 +47,8 @@
 <div class="modal fade" id="modalCRUD" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header" cabecera="">
-                <h5 class="modal-title" id="exampleModalLabel"></h5>
+            <div class="modal-header" cabecera="cabecera">
+            <h5 class="modal-title" id="exampleModalLabel"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
             </div>

@@ -41,6 +41,29 @@ $(document).ready(function () {
         },
     });
 
+  function existeDni(dni){
+    console.log(dni);
+    $.ajax({
+      type: "POST",
+      url: "./ajax/existe.php",
+      data: {dni:dni},
+        success: function (response) {
+          console.log(response);
+         repuesta=parseInt(response);
+         
+         if (repuesta==0){
+           console.log('repuesta es 0 a 1 y retorno true'+repuesta);
+           return true;
+           }else{
+             return false;
+           } 
+      }
+    });
+  }  
+
+  function existe(dni){
+    return true;
+};
   var fila; //captura la fila, para editar o eliminar
   //submit para el Alta y Actualización
     $("#formArticulos").submit(function (e) {
@@ -53,6 +76,25 @@ $(document).ready(function () {
         var f = $.trim($("#f").val());
         var celular = $.trim($("#celular").val());
         var referente = $.trim($("#referente").val());
+
+            if(t.length==0){
+              t=0;
+            };
+            if(f.length==0){
+              f=0;
+            };
+
+/*             if(!existeDni(dni)){
+
+              alert('HEEEEEEEEEEEE');
+              Swal.fire({
+                icon: "error",
+                title: "Atención...",
+                text: "El nro de DNI ya esta Ingresado",
+                //footer: '<a href>Why do I have this issue?</a>'
+            });
+              return false;
+            }; */
 
             if (dni == null || dni.length == 0 || /^\s+$/.test(dni)) {
             //alert('El dni esta vacio desde aca');
@@ -93,7 +135,7 @@ $(document).ready(function () {
             if (opcion==1){
               mensaje="Se dió de alta un Nuevo Registro";
             }else {
-              mensaje="Se dió de alta un Nuevo Registro";
+              mensaje="Se Actualizo Registro";
             };
             $.ajax({
             url: "./ajax/abmArticulos.php",
@@ -114,9 +156,9 @@ $(document).ready(function () {
                 Swal.fire({
                 icon: "success",
                 title: "Correcto...",
-                text: "Se dió de alta un Nuevo Registro",
+                text: mensaje,
                 });
-                console.log(data);
+                
             },
             });
         $("#modalCRUD").modal("hide");
@@ -127,8 +169,8 @@ $(document).ready(function () {
         opcion = 1; //alta
         id = null;
         $("#formArticulos").trigger("reset");
-        $(".modal-header").css("background-color", "#17a2b8");
-        $(".modal-header").css("color", "white");
+        $("#cabecera").css("background-color", "#17a2b8");
+        $("#cabecera").css("color", "white");
       
         $("#exampleModalLabel").text("Alta de Registro de Abogados");
         $("#modalCRUD").modal("show");
@@ -157,8 +199,8 @@ $(document).ready(function () {
         $("#f").val(f);
         $("#celular").val(celular);
         $("#referente").val(referente);
-        $(".modal-header").css("background-color", "#007bff");
-        $(".modal-header").css("color", "white");
+        $("#cabecera").css("background-color", "#007bff");
+        $("#cabecera").css("color", "white");
         $("#exampleModalLabel").text("Editar Registro de Abogado");
         $("#modalCRUD").modal("show");
         setTimeout('$("#apellido").focus()',500);	
