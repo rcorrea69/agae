@@ -69,7 +69,11 @@
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Padron</span></a>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link" href="impo.php">
+                <i class="fas fa-table"></i>
+                    <span>Importar archivo</span></a>
+            </li>
 
             <!-- Divider -->
             <!-- <hr class="sidebar-divider"> -->

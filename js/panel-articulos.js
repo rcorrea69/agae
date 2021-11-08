@@ -46,13 +46,14 @@ $(document).ready(function () {
     $.ajax({
       type: "POST",
       url: "./ajax/existe.php",
+      async: false,
       data: {dni:dni},
         success: function (response) {
-          console.log(response);
+          console.log('repuesta del php '+response);
          repuesta=parseInt(response);
          
          if (repuesta==0){
-           console.log('repuesta es 0 a 1 y retorno true'+repuesta);
+           console.log('repuesta es 0 a 1 y retorno true 0 '+repuesta);
            return true;
            }else{
              return false;
@@ -82,6 +83,12 @@ $(document).ready(function () {
             };
             if(f.length==0){
               f=0;
+            };
+
+            if(existeDni(dni)){
+              alert('okkkkkk no existe');
+            }else{
+              alert('ERROR o sea ya esta ingresado');
             };
 
 /*             if(!existeDni(dni)){
