@@ -18,7 +18,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id="tablaArticulos" class="table table-striped table-bordered table-condensed table-sm" style="width:100%">
+                        <table id="tablaPadron" class="table table-striped table-bordered table-condensed table-sm" style="width:100%">
                             <thead class="text-center thead-dark ">
                                 <tr>
                                     <th>Código</th>
@@ -52,14 +52,14 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form id="formArticulos">
+            <form id="formPadron">
                 <div class="modal-body">
                     <div class="form-row">
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fas fa-id-card mr-1"></i> Dni</div>
                             </div>
-                            <input type="text" class="form-control"  id="dni" name="dni" autocomplete="off">
+                            <input type="text" class="form-control"  id="dni" name="dni" autocomplete="off" tabindex="0">
                         </div>
                         <div class="input-group mt-3">
                             <div class="input-group-prepend">
@@ -113,4 +113,4 @@
 
 <?php require_once("include/parte_inferior.php"); ?>
 
-<script src="js/panel-articulos.js"></script>
+<script src="js/panel-padron.js"></script>
