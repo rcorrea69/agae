@@ -1,6 +1,10 @@
 $(document).ready(function () {
+    
     var id, opcion;
     opcion = 4;
+
+    $('#dni').mask("00.000.000"); // le da una mascara de ingreso 
+
 
     tablaPadron = $("#tablaPadron").DataTable({
         ajax: {
@@ -46,6 +50,15 @@ $(document).ready(function () {
     $("#dni").blur(function (e) {
         e.preventDefault();
         var dni = $("#dni").val();
+        //  console.log('el dni con mascara '+dni);
+        if(dni.length==0){
+            Swal.fire({
+                icon :"warning",
+                tilte : "Atención...",
+                text : "Debe Ingresar el Nro de Documento"
+            });
+           return false;
+        }
         $.ajax({
         type: "POST",
         url: "./ajax/existe.php",
@@ -56,7 +69,7 @@ $(document).ready(function () {
             console.log("Repuesta desde el servidor " + existe);
             if (existe > 0) {
             $("#dni").val("");
-            $("#dni").focus();
+            // setTimeout(function() { $('#dni').focus() }, 500)
             Swal.fire({
                 icon: "warning",
                 title: "Atención...",
@@ -67,6 +80,7 @@ $(document).ready(function () {
                 if (result.isConfirmed) {
                 console.log("entre al confirmado");
                 $("#formPadron").trigger("reset");
+
                 }
             });
             }
@@ -230,4 +244,12 @@ $(document).ready(function () {
         }
         });
     });
+
+        $(".UpperCase").on("keypress", function () {
+        $input=$(this);
+        setTimeout(function () { $input.val($input.val().toUpperCase()) },50);
+        });
+    
+        
+
 });
