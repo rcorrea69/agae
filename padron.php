@@ -48,27 +48,28 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header" cabecera="cabecera">
-            <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <form id="formPadron">
                 <div class="modal-body">
                     <div class="form-row">
+                        <input type="hidden" id="id" name="id">
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fas fa-id-card mr-1"></i> Dni</div>
                             </div>
-                            <input type="text" class="form-control"  id="dni" name="dni" autocomplete="off" tabindex="0" required>
-                            
-                            
+                            <input type="text" class="form-control" id="dni" name="dni" autocomplete="off" tabindex="0" required>
+
+
                         </div>
                         <!-- <small id="dni" class="form-text float-center text-primary">(*) Ingresar el Nro de DNI con puntos</small> -->
                         <div class="input-group mt-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fas fa-id-card mr-1"></i> Apellidos</div>
                             </div>
-                            <input type="text" class="form-control UpperCase" id="apellido" name="apellido" autocomplete="off" >
+                            <input type="text" class="form-control UpperCase" id="apellido" name="apellido" autocomplete="off">
                         </div>
                         <div class="input-group mt-3">
                             <div class="input-group-prepend">
@@ -80,7 +81,7 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text "> T</div>
                             </div>
-                            <input type="text" class="form-control"  id="t" name="t" autocomplete="off">
+                            <input type="text" class="form-control" id="t" name="t" autocomplete="off">
                         </div>
                         <div class="input-group mt-3 col-6">
                             <div class="input-group-prepend">
@@ -92,15 +93,15 @@
                             <div class="input-group-prepend">
                                 <div class="input-group-text"><i class="fas fa-mobile-alt mr-1"></i> Cel.</div>
                             </div>
-                            <input type="text" class="form-control"  id="celular" name="celular" autocomplete="off">
+                            <input type="text" class="form-control" id="celular" name="celular" autocomplete="off">
                         </div>
                         <div class="input-group mt-3">
                             <div class="input-group-prepend">
                                 <div class="input-group-text "><i class="fas fa-male mr-1"></i>Referente</div>
                             </div>
-                            <input type="text" class="form-control UpperCase"  id="referente" name="referente" autocomplete="off">
+                            <input type="text" class="form-control UpperCase" id="referente" name="referente" autocomplete="off">
                         </div>
-                        
+
                     </div>
 
                 </div>

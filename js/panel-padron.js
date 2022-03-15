@@ -24,8 +24,9 @@ $(document).ready(function () {
         { data: "referente" },
         {
             defaultContent:
-            "<div class='text-center'><div class='btn-group'><button class='btn btn-primary btn-sm btnEditar'><i class='far fa-edit '></i></div>",
+            //"<div class='text-center'><div class='btn-group'><button class='btn btn-primary btn-sm btnEditar'><i class='far fa-edit '></i></div>",
             // </button><button class='btn btn-danger btn-sm btnBorrar'><i class='far fa-trash-alt '></i></button></div>
+            "<div class='text-center'><div class='btn-group'><button class='btn btn-primary btn-sm btnEditar'><i class='far fa-edit '></i></button><button class='btn btn-danger btn-sm btnBorrar'><i class='far fa-trash-alt '></i></button></div></div>"
         },
         ],
         language: {
@@ -78,7 +79,7 @@ $(document).ready(function () {
             }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
-                console.log("entre al confirmado");
+                
                 $("#formPadron").trigger("reset");
 
                 }
@@ -92,7 +93,7 @@ $(document).ready(function () {
     //submit para el Alta y Actualización
     $("#formPadron").submit(function (e) {
         e.preventDefault(); //evita el comportambiento normal del submit, es decir, recarga total de la página
-
+        var id = $.trim($("#id").val());
         var dni = $.trim($("#dni").val());
         var apellido = $("#apellido").val();
         var nombre = $("#nombre").val();
@@ -101,6 +102,7 @@ $(document).ready(function () {
         var celular = $.trim($("#celular").val());
         var referente = $.trim($("#referente").val());
 
+        console.log(id);
         if (t.length == 0) {
         t = 0;
         }
@@ -154,6 +156,7 @@ $(document).ready(function () {
         type: "POST",
         datatype: "json",
         data: {
+            id:id,
             dni: dni,
             apellido: apellido,
             nombre: nombre,
@@ -200,7 +203,8 @@ $(document).ready(function () {
         f = fila.find("td:eq(5)").text();
         celular = fila.find("td:eq(6)").text();
         referente = fila.find("td:eq(7)").text();
-
+        
+        $("#id").val(id);
         $("#dni").val(dni);
         $("#nombre").val(nombre);
         $("#apellido").val(apellido);
@@ -232,12 +236,13 @@ $(document).ready(function () {
 
         if (result.isConfirmed) {
             $.ajax({
-            url: "./ajax/AbmOficinas.php",
+            url: "./ajax/abmPadron.php",
             type: "POST",
             datatype: "json",
             data: { opcion: opcion, id: id },
             success: function () {
-                tablaOficinas.row(fila.parents("tr")).remove().draw();
+                tablaPadron.ajax.reload(null, false);
+                
             },
             });
             Swal.fire("Registro Borrado!", "", "success");

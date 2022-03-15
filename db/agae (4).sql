@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-03-2022 a las 13:31:13
+-- Tiempo de generación: 10-03-2022 a las 14:07:04
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 7.3.27
 
@@ -527,96 +527,6 @@ INSERT INTO `padron` (`id_abogado`, `apellidos`, `nombres`, `dni`, `T`, `F`, `ce
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `padron2`
---
-
-CREATE TABLE `padron2` (
-  `id_abogado` int(11) NOT NULL,
-  `apellidos` varchar(50) NOT NULL,
-  `nombres` varchar(50) NOT NULL,
-  `dni` varchar(12) NOT NULL,
-  `T` int(10) NOT NULL,
-  `F` int(10) NOT NULL,
-  `celular` varchar(20) NOT NULL,
-  `referente` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `padron2`
---
-
-INSERT INTO `padron2` (`id_abogado`, `apellidos`, `nombres`, `dni`, `T`, `F`, `celular`, `referente`) VALUES
-(1, 'RODRIGUEZ', 'FACUNDO', '32.848.498', 0, 0, '', 'MARCELA Peña'),
-(2, 'CASTRO CORCOS', 'ELIZABETH', '33.004.371', 111, 683, '', 'Acénto'),
-(3, 'ROMERO', 'MARIA JOSE', '25.184.326', 85, 859, '', 'MARCELA CEVA'),
-(4, 'CLAPS', 'ENRIQUE', '25.020.194', 89, 967, '', 'MARCELA CEVA'),
-(5, 'ZACUR', 'CLAUDIA SUSANA', '14.596.065', 43, 421, '', 'MARCELA CEVA'),
-(6, 'DOMINGUEZ', 'SILVIA BEATRIZ', '24.984.871', 84, 110, '', 'MARCELA CEVA'),
-(7, 'BOSCHIASO ', 'FERNANDA', '25.340.045', 78, 786, '', 'MARCELA CEVA'),
-(8, 'LENZA', 'MARIELA GRISELDA', '24.665.644', 73, 968, '', 'MARCELA CEVA'),
-(9, 'DECUNDO', 'DIEGO', '28.988.161', 109, 962, '', 'MARCELA CEVA'),
-(10, 'SIGNORIS', 'INES', '25.094.438', 88, 120, '', 'MARCELA CEVA'),
-(11, 'ECKERT', 'MONICA', '16.339.268', 45, 656, '', 'MARCELA CEVA'),
-(12, 'Nanini', 'Gisella', '25.258.972', 75, 98, '', 'MARCELA CEVA'),
-(13, 'Piquin', 'Jimena', '26.158.046', 82, 702, '', 'MARCELA CEVA'),
-(14, 'Delgado', 'Jose Luis', '22.637.614', 92, 916, '', 'MARCELA CEVA'),
-(15, 'Gonzales', 'Myryam', '', 0, 0, '', 'MARCELA CEVA'),
-(16, 'Malaguer', 'Maria Sol', '', 0, 0, '', 'MARCELA CEVA'),
-(17, 'Spagnoleti', 'Patricia', '', 0, 0, '', 'MARCELA CEVA'),
-(18, 'Degastaldi', 'Maria Cecilia', '', 0, 0, '', 'MARCELA CEVA'),
-(19, 'Nogales', 'Luis', '', 0, 0, '', 'MARCELA CEVA'),
-(20, 'SPAGNOLETI', 'PATRICIA', '20.021.921', 41, 590, '', 'MARCELA CEVA');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `padron_ant`
---
-
-CREATE TABLE `padron_ant` (
-  `id_abogado` int(11) NOT NULL,
-  `apellidos` varchar(50) NOT NULL,
-  `nombres` varchar(50) NOT NULL,
-  `dni` varchar(12) NOT NULL,
-  `T` int(10) NOT NULL,
-  `F` int(10) NOT NULL,
-  `celular` varchar(20) NOT NULL,
-  `referente` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `padron_ant`
---
-
-INSERT INTO `padron_ant` (`id_abogado`, `apellidos`, `nombres`, `dni`, `T`, `F`, `celular`, `referente`) VALUES
-(1, 'RODRIGUEZ', 'FACUNDO', '32.848.498', 0, 0, '', 'MARCELA Peña'),
-(2, 'CASTRO CORCOS', 'ELIZABETH', '33.004.371', 111, 683, '', 'Acénto'),
-(3, 'ROMERO', 'MARIA JOSE', '25.184.326', 85, 859, '', 'MARCELA CEVA'),
-(4, 'CLAPS', 'ENRIQUE', '25.020.194', 89, 967, '', 'MARCELA CEVA'),
-(5, 'ZACUR', 'CLAUDIA SUSANA', '14.596.065', 43, 421, '', 'MARCELA CEVA'),
-(6, 'DOMINGUEZ', 'SILVIA BEATRIZ', '24.984.871', 84, 110, '', 'MARCELA CEVA'),
-(7, 'BOSCHIASO ', 'FERNANDA', '25.340.045', 78, 786, '', 'MARCELA CEVA'),
-(8, 'LENZA', 'MARIELA GRISELDA', '24.665.644', 73, 968, '', 'MARCELA CEVA'),
-(9, 'DECUNDO', 'DIEGO', '28.988.161', 109, 962, '', 'MARCELA CEVA'),
-(10, 'SIGNORIS', 'INES', '25.094.438', 88, 120, '', 'MARCELA CEVA'),
-(11, 'ECKERT', 'MONICA', '16.339.268', 45, 656, '', 'MARCELA CEVA'),
-(12, 'Nanini', 'Gisella', '25.258.972', 75, 98, '', 'MARCELA CEVA'),
-(13, 'Piquin', 'Jimena', '26.158.046', 82, 702, '', 'MARCELA CEVA'),
-(14, 'Delgado', 'Jose Luis', '22.637.614', 92, 916, '', 'MARCELA CEVA'),
-(15, 'Gonzales', 'Myryam', '', 0, 0, '', 'MARCELA CEVA'),
-(16, 'Malaguer', 'Maria Sol', '', 0, 0, '', 'MARCELA CEVA'),
-(17, 'Spagnoleti', 'Patricia', '', 0, 0, '', 'MARCELA CEVA'),
-(18, 'Degastaldi', 'Maria Cecilia', '', 0, 0, '', 'MARCELA CEVA'),
-(19, 'Nogales', 'Luis', '', 0, 0, '', 'MARCELA CEVA'),
-(20, 'SPAGNOLETI', 'PATRICIA', '20.021.921', 41, 590, '', 'MARCELA CEVA'),
-(21, 'corre', 'f', '16.339.268', 0, 0, 'fas', 'fas'),
-(22, 'yo', 'yo', '22.805.302', 0, 0, '', ''),
-(23, 'correa', 'ruben', '32.848.498', 0, 0, '', 'veo'),
-(24, 'co', 'co', '32.848.498', 0, 0, '', 'marcela');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `usuarios`
 --
 
@@ -634,9 +544,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `usu_usuario`, `usu_clave`, `usu_nombre`, `usu_nivel`, `usu_fecha_alta`) VALUES
-(1, 'javier', '1234444', 'Javier Peña', 2, '2016-12-21'),
+(1, 'javier', 'javier123', 'Javier Peña', 2, '2016-12-21'),
 (2, 'ruben', 'Rcorrea', 'Ruben Correa ', 2, '2016-12-21'),
-(3, 'miguel', 'miguel', 'Miguel', 1, '2016-12-21'),
+(3, 'ivan', 'ivan123', 'Miguel', 1, '2016-12-21'),
 (4, 'cande', 'cande123', 'candela correa', 2, '2019-12-05'),
 (5, 'agu co', 'agus', 'agustin ', 1, '2019-12-05'),
 (6, 'cande', 'cande', 'Cane', 1, '2019-12-10'),
@@ -654,18 +564,6 @@ ALTER TABLE `padron`
   ADD PRIMARY KEY (`id_abogado`);
 
 --
--- Indices de la tabla `padron2`
---
-ALTER TABLE `padron2`
-  ADD PRIMARY KEY (`id_abogado`);
-
---
--- Indices de la tabla `padron_ant`
---
-ALTER TABLE `padron_ant`
-  ADD PRIMARY KEY (`id_abogado`);
-
---
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -680,18 +578,6 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `padron`
   MODIFY `id_abogado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=544;
-
---
--- AUTO_INCREMENT de la tabla `padron2`
---
-ALTER TABLE `padron2`
-  MODIFY `id_abogado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
---
--- AUTO_INCREMENT de la tabla `padron_ant`
---
-ALTER TABLE `padron_ant`
-  MODIFY `id_abogado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

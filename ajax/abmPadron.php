@@ -2,7 +2,7 @@
 include_once '../db/conexion.php';
 
 
-
+$id = (isset($_POST['id'])) ? $_POST['id'] : '';
 $opcion = (isset($_POST['opcion'])) ? $_POST['opcion'] : '';
 $dni = (isset($_POST['dni'])) ? $_POST['dni'] : '';
 $apellido = (isset($_POST['apellido'])) ? $_POST['apellido'] : '';
@@ -17,20 +17,21 @@ switch($opcion){
     case 1:
         $consulta ="INSERT INTO `padron`(`apellidos`, `nombres`, `dni`, `T`, `F`, `celular`, `referente`) 
         VALUES ('".$apellido."','".$nombre."','".$dni."',$t,$f,'".$celular."','".$referente."')";
-        print_r ($consulta);
+        
         $resultado= mysqli_query($link,$consulta);
       
      
         break;    
     case 2:        
     
-        $consulta = "UPDATE padron SET apellidos='".$apellido."',nombres='".$nombre."',t=$t,f=$f,celular='".$celular."',referente='".$referente."' WHERE dni='".$dni."'";		
+        $consulta = "UPDATE padron SET apellidos='".$apellido."',nombres='".$nombre."',dni='".$dni."',t=$t,f=$f,celular='".$celular."',referente='".$referente."' WHERE id_abogado=$id";		
         $resultado= mysqli_query($link,$consulta);
+         echo var_dump($consulta);
 
 
         break;
     case 3:        
-        $consulta = "DELETE FROM oficinas WHERE id_oficina=$id";	
+        $consulta = "DELETE FROM padron WHERE id_abogado=$id";	
         $resultado= mysqli_query($link,$consulta);	
         break;
     case 4:
