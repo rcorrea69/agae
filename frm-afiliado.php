@@ -1,15 +1,20 @@
 <?php require_once("include/parte_superior.php"); ?>
 <!-- Inicio del contenido Principal -->
-<?php require_once('db/conexion_afiliados.php'); ?>
+<?php
+require ("db/conexion_afiliados.php");
+$id=$_GET["id"];
+
+
+$sentencia = mysqli_prepare($link,"SELECT * FROM afiliados WHERE id = ?");
+mysqli_stmt_bind_param($sentencia, "i", $id);
+mysqli_stmt_execute($sentencia);
+$resultado = mysqli_stmt_get_result($sentencia);
+$fila = mysqli_fetch_array($resultado);
+mysqli_stmt_close($sentencia);
+mysqli_close($link);
+echo $fila["afi_apellidos"];
+?>
 <div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <button id="btnNuevo" type="button" class="btn btn-info" data-toggle="modal"><i class="far fa-plus-square fa-1x"> </i> Agregar </i></button>
-        </div>
-    </div>
-</div>
-<br>
-<div class="container caja">
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
@@ -18,71 +23,33 @@
                     <h3>AFILIADOS AGAE </h3>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table id="tablaPadron" class="table table-striped table-bordered table-condensed table-sm" style="width:100%">
-                            <thead class="text-center thead-dark ">
-                                <tr>
-                                    <th>Código</th>
-                                    <th>Apellido/s</th>
-                                    <th>Nombre/s</th>
-                                    <th>D.N.I</th>
-                                    <th>Caja Ahorro</th>
-                                    <th>Email</th>
-                                    <th>Celular</th>
-                                    <th>F. Afiliación</th>
-                                    <th>Acción</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Fin del contenido Principal -->
-
-<!--Modal para CRUD-->
-<div class="modal fade" id="modalCRUD" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
-            <div class="modal-header" cabecera="cabecera">
-                <h5 class="modal-title" id="exampleModalLabel"></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="container">
                     <form id="frmafiliado" action="alta_afiliacion.php" method="post" autocomplete="off" class="row g-3 px-5 needs-validation" novalidate onsubmit="return checkSubmit();">
-                        
+
                         <div class="col-md-6">
                             <label for="apellidos" class="form-label">Apellido/s (<span class="text-danger">*</span>)</label>
-                            <input type="text" class="form-control UpperCase" id="apellidos" name="apellidos" required />
+                            <input type="text" class="form-control UpperCase" id="apellidos" name="apellidos" value="<?php echo $fila["afi_apellidos"]; ?>" required />
                             <div class="invalid-feedback">Por favor ingrese su Apellido.</div>
                         </div>
                         <div class="col-md-6">
                             <label for="nombres" class="form-label">Nombre/s (<span class="text-danger">*</span>)</label>
-                            <input type="text" class="form-control UpperCase" id="nombres" name="nombres" required />
+                            <input type="text" class="form-control UpperCase" id="nombres" name="nombres" value="<?php echo $fila["afi_nombres"]; ?>"required />
                             <div class="invalid-feedback">Por favor ingrese su Nombre.</div>
                         </div>
                         <div class="col-md-4">
                             <label for="nacionalidad" class="form-label">Nacionalidad (<span class="text-danger">*</span>)</label>
-                            <input type="text" class="form-control UpperCase" id="nacionalidad" name="nacionalidad" required />
+                            <input type="text" class="form-control UpperCase" id="nacionalidad" name="nacionalidad" value="<?php echo $fila["afi_nacionalidad"]; ?>" required />
                         </div>
                         <div class="col-md-4">
                             <label for="dni" class="form-label">Nº DNI (<span class="text-danger">*</span>)</label>
-                            <input type="text" class="form-control" id="dni" name="dni" required />
+                            <input type="text" class="form-control" id="dni" name="dni" value="<?php echo $fila["afi_dni"]; ?>" required />
                         </div>
                         <div class="col-md-4">
                             <label for="telefono" class="form-label">Tel. Contacto (<span class="text-danger">*</span>)</label>
-                            <input type="text" class="form-control" id="telefono" name="telefono" required />
+                            <input type="text" class="form-control" id="telefono" name="telefono" value="<?php echo $fila["afi_telefono"]; ?>" required />
                         </div>
                         <div class="col-md-4">
                             <label for="sexo" class="form-label">Sexo (<span class="text-danger">*</span>)</label>
-                            <select id="sexo" name="sexo" class="form-control" required>
+                            <select id="sexo" name="sexo" class="form-control" value="<?php echo $fila["afi_sexo"]; ?>" required>
                                 <option selected disabled value="">Seleccione Sexo...</option>
                                 <option value="FEMENINO">FEMENINO</option>
                                 <option value="MASCULINO">MASCULINO</option>
@@ -181,7 +148,7 @@
                             <!-- <label for="ctactesuc" class="form-label">Caja de Ahorro </label> -->
 
                             <div class="row">
- 
+
                                 <div class="col-md-5">
                                     <label for="ctacte" class="form-label">Caja de Ahorro </label>
                                     <!-- <input type="number" class="form-control" id="ctacte" name="ctacte" placeholder="00000000000000" required min="00000000000001" max="99999999999999" maxlength="14" oninput="if(this.value.length = this.maxLength ) this.value = this.value.slice(0, this.maxLength);"/> -->
@@ -203,9 +170,7 @@
             </div>
         </div>
     </div>
+
+
 </div>
-
-
 <?php require_once("include/parte_inferior.php"); ?>
-
-<script src="js/panel-afiliado.js"></script>
