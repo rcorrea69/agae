@@ -47,35 +47,36 @@ echo $fila["afi_apellidos"];
                             <label for="telefono" class="form-label">Tel. Contacto (<span class="text-danger">*</span>)</label>
                             <input type="text" class="form-control" id="telefono" name="telefono" value="<?php echo $fila["afi_telefono"]; ?>" required />
                         </div>
+                        
                         <div class="col-md-4">
                             <label for="sexo" class="form-label">Sexo (<span class="text-danger">*</span>)</label>
                             <select id="sexo" name="sexo" class="form-control" value="<?php echo $fila["afi_sexo"]; ?>" required>
-                                <option selected disabled value="">Seleccione Sexo...</option>
-                                <option value="FEMENINO">FEMENINO</option>
-                                <option value="MASCULINO">MASCULINO</option>
-                                <option value="OTROS">OTROS</option>
+                                <option selected disabled value="">Seleccione Sexo...</option> 
+                                <option value="FEMENINO"<?php if($fila['afi_sexo']=='FEMENINO'){echo 'selected';} ?>>FEMENINO</option>
+                                <option value="MASCULINO" <?php if($fila['afi_sexo']=='MASCULINO'){echo 'selected';} ?>>MASCULINO</option>
+                                <option value="OTROS" <?php if($fila['afi_sexo']=='OTROS'){echo 'selected';} ?>>OTROS</option>
                             </select>
                         </div>
                         <div class="col-md-4">
                             <label for="estadocivil" class="form-label">Estado Civil (<span class="text-danger">*</span>)</label>
                             <select id="estadocivil" name="estadocivil" class="form-control">
-                                <option value="CASADA/O" selected>CASADA/O</option>
-                                <option value="SOLTERA/O">SOLTERA/O</option>
-                                <option value="DIVORCIADA/O">DIVORCIADA/O</option>
-                                <option value="VIUDA/O">VIUDA/O</option>
+                                <option value="CASADA/O" <?php if($fila['afi_civil']=='CASADA/O'){echo 'selected';} ?> >CASADA/O</option>
+                                <option value="SOLTERA/O" <?php if($fila['afi_civil']=='SOLTERA/O'){echo 'selected';} ?>>SOLTERA/O</option>
+                                <option value="DIVORCIADA/O"<?php if($fila['afi_civil']=='DIVORCIADA/O'){echo 'selected';} ?>>DIVORCIADA/O</option>
+                                <option value="VIUDA/O" <?php if($fila['afi_civil']=='VIUDA/O'){echo 'selected';} ?>>VIUDA/O</option>
                             </select>
                         </div>
                         <div class="col-md-4">
                             <label for="fechanacimiento" class="form-label">Fecha de Nacimiento (<span class="text-danger">*</span>)</label>
-                            <input type="date" class="form-control" id="fechanacimiento" name="fechanacimiento" required />
+                            <input type="date" class="form-control" id="fechanacimiento" name="fechanacimiento" required value="<?php echo $fila["afi_nacimiento"]; ?>"/>
                         </div>
                         <div class="col-md-6">
                             <label for="domicilio" class="form-label">Domicilio (Calle y Nº) (<span class="text-danger">*</span>)</label>
-                            <input type="text" class="form-control UpperCase" id="domicilio" name="domicilio" required />
+                            <input type="text" class="form-control UpperCase" id="domicilio" name="domicilio" required value="<?php echo $fila["afi_domicilio"]; ?>"/>
                         </div>
                         <div class="col-md-3">
                             <label for="localidad" class="form-label">Localidad (<span class="text-danger">*</span>)</label>
-                            <input type="text" class="form-control UpperCase" id="localidad" name="localidad" required />
+                            <input type="text" class="form-control UpperCase" id="localidad" name="localidad" value="<?php echo $fila["afi_localidad"]; ?>" required />
                         </div>
                         <div class="col-md-3">
                             <label for="codigopostal" class="form-label">Código Postal (<span class="text-danger">*</span>)</label>
