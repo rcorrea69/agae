@@ -46,7 +46,7 @@
 <!-- Fin del contenido Principal -->
 
 <!--Modal para CRUD-->
-<div class="modal fade" id="modalCRUD" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="modalCRUD" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header" cabecera="cabecera">
@@ -178,14 +178,12 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <!-- <label for="ctactesuc" class="form-label">Caja de Ahorro </label> -->
+
 
                             <div class="row">
  
                                 <div class="col-md-5">
                                     <label for="ctacte" class="form-label">Caja de Ahorro </label>
-                                    <!-- <input type="number" class="form-control" id="ctacte" name="ctacte" placeholder="00000000000000" required min="00000000000001" max="99999999999999" maxlength="14" oninput="if(this.value.length = this.maxLength ) this.value = this.value.slice(0, this.maxLength);"/> -->
-                                    <!-- minlength="14" maxlength="14" -->
                                     <input type="text" class="form-control" id="ctacte" name="ctacte" placeholder="00000000000000" required minlength="14" maxlength="14" pattern="[0-9]+" />
                                     <small id="emailHelp" class="form-text text-muted">Número de Cuenta (<span class="text-danger">*</span>)</small>
                                     <div class="invalid-feedback">
@@ -203,7 +201,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 
 <?php require_once("include/parte_inferior.php"); ?>

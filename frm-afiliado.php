@@ -12,7 +12,7 @@ $resultado = mysqli_stmt_get_result($sentencia);
 $fila = mysqli_fetch_array($resultado);
 mysqli_stmt_close($sentencia);
 mysqli_close($link);
-echo $fila["afi_apellidos"];
+//echo $fila["afi_apellidos"];
 ?>
 <div class="container">
     <div class="row">
