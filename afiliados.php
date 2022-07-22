@@ -13,22 +13,23 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-header">
-                    <i class="fas fa-table"></i>
-                    <h3>AFILIADOS AGAE </h3>
+                <div class="card-header text-white bg-gradient-primary">
+                    <h4 style="text-align: center ;">
+                    <!-- <i class="fas fa-table"></i> -->
+                    AFILIADOS AGAE </h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table id="tablaPadron" class="table table-striped table-bordered table-condensed table-sm" style="width:100%">
                             <thead class="text-center thead-dark ">
                                 <tr>
-                                    <th>Código</th>
+                                    <th>Id</th>
                                     <th>Apellido/s</th>
                                     <th>Nombre/s</th>
-                                    <th>D.N.I</th>
+                                    <!-- <th>D.N.I</th> -->
                                     <th>Caja Ahorro</th>
-                                    <th>Email</th>
-                                    <th>Celular</th>
+                                    <!-- <th>Email</th> -->
+                                    <!-- <th>Celular</th> -->
                                     <th>F. Afiliación</th>
                                     <th>Acción</th>
 

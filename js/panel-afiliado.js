@@ -15,10 +15,10 @@ $(document).ready(function () {
         { data: "id" },
         { data: "apellidos" },
         { data: "nombres" },
-        { data: "dni" },
+        // { data: "dni" },
         { data: "ctacte" },
-        { data: "email" },
-        { data: "celular" },
+        // { data: "email" },
+        // { data: "celular" },
         { data: "fecha" },
         {
             defaultContent:

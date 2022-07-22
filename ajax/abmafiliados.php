@@ -1,5 +1,7 @@
 <?php
+require_once '../include/funciones.php';
 include_once '../db/conexion_afiliados.php';
+
 
 
 $id = (isset($_POST['id'])) ? $_POST['id'] : '';
@@ -49,7 +51,7 @@ switch($opcion){
                             'ctacte'=> $row['afi_ctacte'],
                             'email'=> $row['afi_email'],
                             'celular'=> $row['afi_telefono'],
-                            'fecha'=> $row['afi_fechasolicitud']
+                            'fecha'=> formato_fecha_dd_mm_Y($row['afi_fechasolicitud']) 
                         
                         );    
             };
